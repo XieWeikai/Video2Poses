@@ -1,0 +1,24 @@
+[project]
+name = "video2poses"
+version = "0.1.0"
+description = "A Python package for converting video frames into pose estimations."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=2.2.6",
+]
+
+[project.optional-dependencies]
+service = [
+    "fastapi",
+    "pydantic",
+    "pyyaml",
+    "uvicorn",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["video2poses"]

@@ -1,0 +1,22 @@
+service:
+  host: 0.0.0.0
+  port: 18080
+  log_level: info
+  request_timeout_sec: 1800
+
+model:
+  model_dir: /models/map-anything
+  devices:
+    - cuda0
+  infer:
+    memory_efficient_inference: true
+    minibatch_size: null
+    use_amp: true
+    amp_dtype: bf16
+    apply_mask: true
+    mask_edges: true
+    apply_confidence_mask: false
+    confidence_percentile: 10
+    use_multiview_confidence: false
+    multiview_conf_depth_abs_thresh: 0.02
+    multiview_conf_depth_rel_thresh: 0.02

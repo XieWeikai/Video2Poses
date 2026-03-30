@@ -1,0 +1,14 @@
+.git
+.gitmodules
+.venv
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache
+.mypy_cache
+.ruff_cache
+build
+dist
+service_*_artifacts
+tmp
