@@ -4,7 +4,7 @@ set -euo pipefail
 IMAGE_TAG="video2poses-mapanything-service:latest"
 CONTAINER_NAME="video2poses-mapanything-service"
 HOST_PORT="18080"
-HOST_ADDR="0.0.0.0"
+HOST_ADDR="127.0.0.1"
 GPU_SPEC="all"
 MODEL_DIR=""
 CONFIG_PATH=""
@@ -87,5 +87,11 @@ done
 docker run "${DOCKER_ARGS[@]}" \
   "${IMAGE_TAG}"
 
+DISPLAY_ADDR="${HOST_ADDR}"
+if [[ "${DISPLAY_ADDR}" == "0.0.0.0" ]]; then
+  DISPLAY_ADDR="127.0.0.1"
+fi
+
 echo "Container started: ${CONTAINER_NAME}"
-echo "Service URL: http://${HOST_ADDR}:${HOST_PORT}"
+echo "Service bind address inside container: 0.0.0.0:18080"
+echo "Service URL from this host: http://${DISPLAY_ADDR}:${HOST_PORT}"

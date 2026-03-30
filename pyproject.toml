@@ -5,6 +5,7 @@ description = "A Python package for converting video frames into pose estimation
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
+    "matplotlib>=3.10.8",
     "numpy>=2.2.6",
 ]
 
